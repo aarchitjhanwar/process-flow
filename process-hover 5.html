@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Godawari Industries – Process Flow</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+}
+
+/* Flow container */
+.flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 420px;
+  max-width: 1300px;
+  margin: 60px auto;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+/* GREEN horizontal line (from step 1 to step 5 only) */
+.flow::before {
+  content: "";
+  position: absolute;
+  top: 72px;
+  left: calc(100% / 10);
+  right: calc(100% / 10);
+  height: 2px;
+  background: #0c8f3c;
+  z-index: 1;
+}
+
+/* Step column */
+.step {
+  position: relative;
+  border-right: 1px solid #ddd;
+  padding: 24px 12px;
+  overflow: hidden;
+}
+
+.step:last-child {
+  border-right: none;
+}
+
+/* Step number (GREEN) */
+.step-number {
+  position: relative;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border: 2px solid #0c8f3c;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 34px;
+  font-size: 14px;
+  color: #0c8f3c;
+  margin: 24px auto 0;
+  background: #ffffff;
+}
+
+/* Vertical dotted GREEN connector (number → title) */
+.connector-vertical {
+  width: 0;
+  height: 90px;
+  margin: 0 auto;
+  border-left: 2px dotted #0c8f3c;
+}
+
+/* Vertical title */
+.step-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 15px;
+  color: #2c3e50;
+  text-align: center;
+  margin: auto;
+}
+
+/* Hover content */
+.step-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+/* Image */
+.step-hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Description on image */
+.step-hover .desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #fff;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.2)
+  );
+}
+
+/* Hover behavior */
+.step:hover .step-hover {
+  opacity: 1;
+}
+
+.step:hover .step-number,
+.step:hover .connector-vertical,
+.step:hover .step-title {
+  opacity: 0;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .flow {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .flow::before {
+    display: none;
+  }
+
+  .step {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    height: 320px;
+  }
+
+  .step-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="flow">
+
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="connector-vertical"></div>
+    <div class="step-title">Raw Material Purchase</div>
+    <div class="step-hover">
+      <img src="godawari-raw-material-sourcing.jpg.png">
+      <div class="desc">
+        Located close to premium maize-producing regions, raw material is sourced year-round by experienced professionals.
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="connector-vertical"></div>
+    <div class="step-title">Quality Check & Batching</div>
+    <div class="step-hover">
+      <img src="godawari-cleaning-process.jpg.png">
+      <div class="desc">
+        Each bag is manually inspected and batched before being stored in fumigated stockyards as per industry standards.
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="connector-vertical"></div>
+    <div class="step-title">Grits Manufacturing</div>
+    <div class="step-hover">
+      <img src="godawari-milling-process.jpg.png">
+      <div class="desc">
+        Fully automated cleaning and milling systems classify products into four quality grades without human contact.
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="connector-vertical"></div>
+    <div class="step-title">Quality Control</div>
+    <div class="step-hover">
+      <img src="godawari-quality-control.jpg.png">
+      <div class="desc">
+        Random laboratory testing is conducted multiple times each shift to ensure safety and consistency.
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">5</div>
+    <div class="connector-vertical"></div>
+    <div class="step-title">Packing & Dispatch</div>
+    <div class="step-hover">
+      <img src="godawari-packing-dispatch.jpg.png">
+      <div class="desc">
+        Products are hygienically packed, batch-coded for full traceability, and dispatched through efficient logistics.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
